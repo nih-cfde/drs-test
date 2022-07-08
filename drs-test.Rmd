@@ -37,8 +37,6 @@ write.table(drs, "drs-test.sh", row.names = F, quote = FALSE, sep = " ")
 
 
 ```{bash}
-
-
 chmod u+x  drs-test.sh
 
 head drs-test.sh
