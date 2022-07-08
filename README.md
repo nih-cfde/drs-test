@@ -5,7 +5,7 @@ A Repo for testing a random sample of drs ids to see if they resolve.
 ## Steps
 
 
-Launch the [![Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/raynamharris/drs-test/master?urlpath=rstudio)
+Launch the [![Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nih-cfde/drs-test/master?urlpath=rstudio)
 
 
 Open the **drs-test.R** script. This script takes an NCPI manifest file and gets the DRS ids for 10 randomly selected files and prints the output from the command `drs get`. Click **R** to run the whole script and generate and output file called **drs-test.sh** that contains one `drs get` command per line.
