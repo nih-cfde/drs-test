@@ -66,5 +66,6 @@ The output for `drs get https://drs.hmpdacc.org 1L3EGziLLV5a1` should look like:
         }
     ]
 }
-
+2022-07-08 15:56:01,746	INFO	object/bundle download not requested
+2022-07-08 15:56:01,746	INFO	exiting with exit code: 0
 ```
