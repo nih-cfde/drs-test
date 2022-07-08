@@ -7,6 +7,6 @@ dependencies:
   - python=3.7
   - r-base=3.6
   - r-devtools
-  - r-dply
+  - r-dplyr
   - r-tidyr
   - r-ggplot2
