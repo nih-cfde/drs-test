@@ -1,0 +1,47 @@
+---
+title: "drs-test"
+output: md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+df <- read.csv("ncpi_manifest.csv") 
+head(df)
+
+df2 <- df %>%
+  filter(grepl("drs", drs_uri))
+
+ggplot(df, aes(x = study_registration)) +
+  geom_bar() +
+  coord_flip()
+
+drs  <- df %>%
+  sample_n(2, replace = FALSE) %>%
+  mutate(drs = gsub("drs:", "drs get https:", drs_uri)) %>%
+  mutate(drs = gsub(".org/", ".org ", drs)) %>%
+  select(drs)
+
+colnames(drs) <- NULL
+drs
+
+write.table(drs, "drs-test.sh", row.names = F, quote = FALSE, sep = " ")
+
+```
+
+
+```{bash}
+
+
+chmod u+x  drs-test.sh
+
+head drs-test.sh
+
+bash drs-test.sh
+```
