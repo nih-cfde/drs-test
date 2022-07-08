@@ -7,7 +7,7 @@ output: md_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r import}
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -21,9 +21,12 @@ df2 <- df %>%
 ggplot(df, aes(x = study_registration)) +
   geom_bar() +
   coord_flip()
+```
 
+
+```{r sample}
 drs  <- df %>%
-  sample_n(2, replace = FALSE) %>%
+  sample_n(10, replace = FALSE) %>%
   mutate(drs = gsub("drs:", "drs get https:", drs_uri)) %>%
   mutate(drs = gsub(".org/", ".org ", drs)) %>%
   select(drs)
@@ -32,7 +35,6 @@ colnames(drs) <- NULL
 drs
 
 write.table(drs, "drs-test.sh", row.names = F, quote = FALSE, sep = " ")
-
 ```
 
 
