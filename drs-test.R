@@ -1,13 +1,3 @@
----
-title: "drs-test"
-output: md_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r import}
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -18,14 +8,7 @@ head(df)
 df2 <- df %>%
   filter(grepl("drs", drs_uri))
 
-ggplot(df, aes(x = study_registration)) +
-  geom_bar() +
-  coord_flip()
-```
-
-
-```{r sample}
-drs  <- df %>%
+drs  <- df2 %>%
   sample_n(10, replace = FALSE) %>%
   mutate(drs = gsub("drs:", "drs get https:", drs_uri)) %>%
   mutate(drs = gsub(".org/", ".org ", drs)) %>%
@@ -35,13 +18,3 @@ colnames(drs) <- NULL
 drs
 
 write.table(drs, "drs-test.sh", row.names = F, quote = FALSE, sep = " ")
-```
-
-
-```{bash}
-chmod u+x  drs-test.sh
-
-head drs-test.sh
-
-bash drs-test.sh
-```
